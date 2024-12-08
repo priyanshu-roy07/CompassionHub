@@ -1,0 +1,582 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .donate-button, .receive-button {
+      background-color: #fdb515;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hero {
+      background-color: #262626;
+      color: white;
+      padding: 60px 30px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .hero button {
+      background-color: #fdb515;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .about {
+      display: flex;
+      align-items: center;
+      padding: 50px 30px;
+    }
+
+    .about .content {
+      flex: 1;
+    }
+
+    .about img {
+      max-width: 50%;
+      margin-left: 30px;
+      border-radius: 10px;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+    }
+
+    .about p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    .stats {
+      background-color: #f9f9f9;
+      padding: 50px 30px;
+      text-align: center;
+    }
+
+    .stats h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .stats-container div {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .stats-container h3 {
+      font-size: 3rem;
+      color: #fdb515;
+    }
+
+    .features-section {
+      padding: 50px 30px;
+      background-color: #f9f9f9;
+    }
+
+    .features-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .feature img {
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .feature p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer {
+      background-color: #262626;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="https://via.placeholder.com/40" alt="Logo">
+    <span>CompassionHub</span>
+  </div>
+  <nav>
+    <a href="#">ABOUT US</a>
+    <a href="#">OUR PROGRAMS</a>
+    <a href="#">IMPACT</a>
+    <a href="#">OUR PRESENCE</a>
+    <div class="button-container">
+      <button class="donate-button" onclick="window.location.href='donate.html'">Donate Now</button>
+      <button class="receive-button" onclick="window.location.href='receive.html'">Receive</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>We Are Nourishing India's Health</h1>
+  <button>Support Operation Karuna</button>
+</section>
+
+<section class="about">
+  <div class="content">
+    <h2>Our battle against hunger is humanity's war for equality</h2>
+    <p>
+      A country cannot progress if most of its people are hungry. Today, 14% of our population is undernourished and needs our undivided attention. The only way to ensure a healthy and happy country is by nourishing the ones who need it the most.
+      Annamrita Foundation is an NGO working with an aim to provide food-relief and nourishment to the underprivileged communities of India.
+    </p>
+    <p>At CompassionHub, we exchange 'Hunger for Hope'.</p>
+  </div>
+  <img src="https://via.placeholder.com/400" alt="Cooking Image">
+</section>
+
+<section class="stats">
+  <h2>Our Impact</h2>
+  <div class="stats-container">
+    <div>
+      <h3 id="donationsCount">0</h3>
+      <p>Meals Donated</p>
+    </div>
+    <div>
+      <h3>50+</h3>
+      <p>Volunteers</p>
+    </div>
+    <div>
+      <h3>20+</h3>
+      <p>NGOs Partnered</p>
+    </div>
+  </div>
+</section>
+
+<section class="features-section">
+  <h2>Our Features</h2>
+  <div class="features-grid">
+    <div class="feature">
+      <img src="https://via.placeholder.com/80" alt="Volunteer">
+      <h3>Volunteer Opportunities</h3>
+      <p>Join our team of dedicated volunteers and make a difference.</p>
+    </div>
+    <div class="feature">
+      <img src="https://via.placeholder.com/80" alt="Food">
+      <h3>Food Distribution</h3>
+      <p>Help us distribute meals to those in need across India.</p>
+    </div>
+    <div class="feature">
+      <img src="https://via.placeholder.com/80" alt="Campaigns">
+      <h3>Ongoing Campaigns</h3>
+      <p>Participate in our ongoing campaigns to fight hunger.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2024 CompassionHub. All Rights Reserved.
+</footer>
+
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .donate-button, .receive-button {
+      background-color: #fdb515;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hero {
+      background-color: #262626;
+      color: white;
+      padding: 60px 30px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .hero button {
+      background-color: #fdb515;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .stats {
+      background-color: #f9f9f9;
+      padding: 50px 30px;
+      text-align: center;
+    }
+
+    .stats h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .stats-container div {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .stats-container h3 {
+      font-size: 3rem;
+      color: #fdb515;
+    }
+
+    .about {
+      display: flex;
+      align-items: center;
+      padding: 50px 30px;
+      background-color: #f9f9f9;
+      border-top: 2px solid #fdb515;
+    }
+
+    .about .content {
+      flex: 1;
+    }
+
+    .about img {
+      max-width: 50%;
+      margin-left: 30px;
+      border-radius: 10px;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .about p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .features-section {
+      padding: 50px 30px;
+      background-color: #f9f9f9;
+    }
+
+    .features-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .feature img {
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .feature p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer {
+      background-color: #262626;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    .about-us {
+      padding: 50px 30px;
+      background-color: #fff;
+    }
+
+    .about-us h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .about-us .content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .about-us img {
+      display: block;
+      margin: 30px auto;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="CompassionHub.jpg" alt="Logo" style="border-radius: 50%;">
+    <span>CompassionHub</span>
+  </div>
+  <nav>
+    <a href="#about-us">ABOUT US</a>
+    <a href="#">OUR PROGRAMS</a>
+    <a href="#stats">IMPACT</a>
+    <a href="#features-section">FEATURES</a>
+    <a href="login.html">LOGIN</a>
+    <div class="button-container">
+      <button class="donate-button" onclick="window.location.href='donate.html'">Donate Now</button>
+      <button class="receive-button" onclick="window.location.href='receive.html'">Receive</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>We Are Nourishing India's Health</h1>
+  <button>Support Operation Karuna</button>
+</section>
+
+<section class="about">
+  <div class="content">
+    <h2>Our battle against hunger is humanity's war for equality</h2>
+    <p>
+      A country cannot progress if most of its people are hungry. Today, 14% of our population is undernourished and needs our undivided attention. The only way to ensure a healthy and happy country is by nourishing the ones who need it the most.
+      At CompassionHub, we believe in a world where no one goes hungry. As a mission-driven platform, we are dedicated to eradicating hunger and providing nourishment to underprivileged communities across India. Guided by empathy and driven by purpose, we collaborate with donors, volunteers, and NGOs to transform lives and bring hope to those in need.    </p>
+    <p>At CompassionHub, we exchange 'Hunger for Hope'.</p>
+  </div>
+  <img src="kid.jpg" alt="Cooking Image" style="height: 300px; width: 400px;">
+</section>
+
+<section id="stats" class="stats">
+  <h2>Our Impact</h2>
+  <div class="stats-container">
+    <div>
+      <h3 id="donationsCount">5</h3>
+      <p>Meals Donated</p>
+    </div>
+    <div>
+      <h3>3</h3>
+      <p>Volunteers</p>
+    </div>
+    <div>
+      <h3>1</h3>
+      <p>NGOs Partnered</p>
+    </div>
+  </div>
+</section>
+
+<section id="features-section" class="features-section">
+  <h2>Our Features</h2>
+  <div class="features-grid">
+    <div class="feature">
+      <img src="volunteer.jpeg" alt="Volunteer">
+      <h3>Volunteer Opportunities</h3>
+      <p>Join our team of dedicated volunteers and make a difference.</p>
+    </div>
+    <div class="feature">
+      <img src="distribution.jpeg" alt="Food">
+      <h3>Food Distribution</h3>
+      <p>Help us distribute meals to those in need across India.</p>
+    </div>
+    <div class="feature">
+      <img src="CompassionHub.jpg" alt="Campaigns">
+      <h3>Ongoing Campaigns</h3>
+      <p>Participate in our ongoing campaigns to fight hunger.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about-us" class="about-us">
+    <h2>About Us</h2>
+    <div class="content">
+      <p>
+        CompassionHub is a mission-driven platform dedicated to eradicating hunger and providing nourishment to the underprivileged across India.
+        We work with communities, donors, and volunteers to bring hope and sustenance to those in need.
+      </p>
+      <p>
+        Together, we can create a better future where no one goes hungry. At CompassionHub, we turn compassion into action.
+      </p>
+    </div>
+    <img src="CompassionHub.jpg" alt="Team at CompassionHub">
+  </section>
+
+<footer>
+  © 2024 CompassionHub. All Rights Reserved.
+</footer>
+
+</body>
+</html>

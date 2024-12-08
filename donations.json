@@ -1,0 +1,19 @@
+[
+    {
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "amount": 500,
+      "mealType": "Rice and Dal",
+      "mealQuantity": 100,
+      "paymentMethod": "Credit Card"
+    },
+    {
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "amount": 1000,
+      "mealType": "Vegetable Biryani",
+      "mealQuantity": 200,
+      "paymentMethod": "UPI"
+    }
+  ]
+  

@@ -1,0 +1,299 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annamrita Donation Page</title>
+    <style>
+        /* Existing styles remain unchanged */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #fceabb, #f8b500);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #fdb515;
+        }
+
+        main {
+            margin-top: 120px; /* Ensure the main content doesn't overlap with the header */
+            padding: 50px;
+            background: white;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 100px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #fdb515;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff9f00;
+        }
+
+        .donation-list {
+            margin-top: 30px;
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .donation-list h3 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .donation-item {
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .donation-item p {
+            margin: 5px 0;
+        }
+
+        footer {
+            background-color: #262626;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        .upi-section, .card-details-section {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .upi-section img {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .upi-section p, .card-details-section p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 30px;
+            }
+
+            header {
+                padding: 15px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="CompassionHub.jpg" alt="CompassionHub Logo" style="border-radius: 50%;">
+    </div>
+    <nav style="width: 99%;">
+        <ul>
+            <li><a href="index.html" style="margin-left: 600px;">Home</a></li>
+            <li><a href="index.html">About Us</a></li>
+            <li><a href="index.html">Impact</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="receive.html">Receive</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>Donate Now</h1>
+    <p>Support our mission to feed the hungry and make a difference in the world.</p>
+
+    <form id="donationForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="amount">Donation Amount:</label>
+        <input type="number" id="amount" name="amount" min="1" required>
+
+        <label for="mealType">Meal Type:</label>
+        <input type="text" id="mealType" name="mealType" required>
+
+        <label for="mealQuantity">Meal Quantity:</label>
+        <input type="number" id="mealQuantity" name="mealQuantity" min="1" required>
+
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+            <option value="credit-card">Credit Card</option>
+            <option value="debit-card">Debit Card</option>
+            <option value="net-banking">Net Banking</option>
+            <option value="upi">UPI</option>
+        </select>
+
+        <div class="upi-section" id="upiSection">
+            <p>Scan this QR code to make your payment via UPI:</p>
+            <img src="upi.jpg" alt="UPI QR Code">
+        </div>
+
+        <div class="card-details-section" id="cardDetailsSection">
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+
+            <label for="expiryDate">Expiry Date:</label>
+            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="password" id="cvv" name="cvv" placeholder="XXX" required>
+        </div>
+
+        <button type="submit">Donate Now</button>
+    </form>
+
+    <div class="donation-list" id="donationList">
+        <h3>Donation History</h3>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; CompassionHub 2024 | All Rights Reserved</p>
+</footer>
+
+<script>
+    // Handle dynamic display of UPI and Card Details sections
+    document.getElementById('paymentMethod').addEventListener('change', function() {
+        const upiSection = document.getElementById('upiSection');
+        const cardDetailsSection = document.getElementById('cardDetailsSection');
+        if (this.value === 'upi') {
+            upiSection.style.display = 'block';
+            cardDetailsSection.style.display = 'none';
+        } else if (this.value === 'credit-card' || this.value === 'debit-card') {
+            cardDetailsSection.style.display = 'block';
+            upiSection.style.display = 'none';
+        } else {
+            upiSection.style.display = 'none';
+            cardDetailsSection.style.display = 'none';
+        }
+    });
+
+    // Existing form submission logic
+    document.getElementById('donationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const donation = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            amount: document.getElementById('amount').value,
+            mealType: document.getElementById('mealType').value,
+            mealQuantity: document.getElementById('mealQuantity').value,
+            paymentMethod: document.getElementById('paymentMethod').value
+        };
+        const donationList = document.getElementById('donationList');
+        const donationItem = document.createElement('div');
+        donationItem.className = 'donation-item';
+        donationItem.innerHTML = `
+            <p><strong>Name:</strong> ${donation.name}</p>
+            <p><strong>Email:</strong> ${donation.email}</p>
+            <p><strong>Amount:</strong> ₹${donation.amount}</p>
+            <p><strong>Meal Type:</strong> ${donation.mealType}</p>
+            <p><strong>Quantity:</strong> ${donation.mealQuantity}</p>
+            <p><strong>Method:</strong> ${donation.paymentMethod}</p>
+        `;
+        donationList.appendChild(donationItem);
+        this.reset();
+        document.getElementById('upiSection').style.display = 'none';
+        document.getElementById('cardDetailsSection').style.display = 'none';
+    });
+</script>
+
+</body>
+</html>

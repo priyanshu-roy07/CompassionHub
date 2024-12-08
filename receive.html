@@ -1,0 +1,369 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Receive Food</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="receive.html" class="active">Receive</a></li>
+        <li><a href="login.html" class="login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="receive-section">
+      <h1>Available Donations</h1>
+      <ul id="availableDonations">
+      </ul>
+    </section>
+
+    <section class="accepted-section">
+      <h1>Accepted Donations</h1>
+      <ul id="acceptedDonations">
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    // Fetch donations and accepted donations from localStorage
+    const donations = JSON.parse(localStorage.getItem("donations")) || [];
+    const acceptedDonations = JSON.parse(localStorage.getItem("acceptedDonations")) || [];
+    const availableDonations = document.getElementById("availableDonations");
+    const acceptedDonationsList = document.getElementById("acceptedDonations");
+
+    // Render donations list
+    function renderDonations() {
+      availableDonations.innerHTML = ""; // Clear the list first
+      donations.forEach((donation, index) => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `
+          ${donation} 
+          <button onclick="acceptDonation(${index})">Accept</button>
+        `;
+        availableDonations.appendChild(listItem);
+      });
+    }
+
+    // Render accepted donations
+    function renderAcceptedDonations() {
+      acceptedDonationsList.innerHTML = ""; // Clear the list first
+      acceptedDonations.forEach((donation) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = donation;
+        acceptedDonationsList.appendChild(listItem);
+      });
+    }
+
+    // Function to handle accepting a donation
+    function acceptDonation(index) {
+      const confirmed = confirm("Do you want to accept this donation?");
+      if (confirmed) {
+        const acceptedItem = donations.splice(index, 1)[0]; // Remove donation from donations list
+        acceptedDonations.push(acceptedItem); // Add it to accepted donations list
+        localStorage.setItem("donations", JSON.stringify(donations)); // Update localStorage for donations
+        localStorage.setItem("acceptedDonations", JSON.stringify(acceptedDonations)); // Update accepted donations
+        renderDonations(); // Re-render donations
+        renderAcceptedDonations(); // Re-render accepted donations
+      }
+    }
+
+    // Render the donations and accepted donations list when the page loads
+    document.addEventListener("DOMContentLoaded", () => {
+      renderDonations();
+      renderAcceptedDonations();
+    });
+  </script>
+</body>
+</html>
+ -->
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receive Donations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f0f4f8; /* Light blue background for a fresh feel */
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        header {
+            background-color: #2C3E50; /* Deep blue color for header */
+            color: white;
+            padding: 20px 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #fff;
+            margin-right: 20px;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #fdb515; /* Bright yellow on hover */
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .content {
+            padding: 30px 20px;
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2C3E50; /* Deep blue color for titles */
+            text-align: center;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #7F8C8D; /* Light grey text */
+            transition: color 0.3s ease;
+        }
+
+        .available-donations, .accepted-donations {
+            margin-top: 40px;
+        }
+
+        .donation-list {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .donation-list li {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .donation-list li:hover {
+            transform: translateY(-10px);
+            background-color: #eaf0f1;
+        }
+
+        .donation-list li button {
+            background-color: #16a085; /* Teal color for buttons */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .donation-list li button:hover {
+            background-color: #1abc9c; /* Lighter teal color */
+            transform: scale(1.05);
+        }
+
+        .accepted-list {
+            margin-top: 20px;
+            background-color: #e8f5e9;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #c8e6c9;
+        }
+
+        .accepted-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .accepted-list li {
+            background-color: #a5d6a7;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 5px;
+            color: #2e7d32;
+            transition: background-color 0.3s ease;
+        }
+
+        .accepted-list li:hover {
+            background-color: #81c784;
+        }
+
+        /* Hover effects on donation box */
+        .donation-list li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animation */
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            .donation-list {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Interactive Effects */
+        .content:hover {
+            transform: translateY(-10px); /* Slight lifting effect */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="CompassionHub.jpg" alt="Logo" style="border-radius: 50%;">
+            </div>
+            <div>
+                <a href="index.html">Home</a>
+                <a href="index.html">About Us</a>
+                <a href="index.html">Programs</a>
+                <a href="index.html">Impact</a>
+                <a href="donate.html">Donate</a>
+                <a href="login.html">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h1>Receive Donations</h1>
+        <p>Here, you can accept the donations made by generous donors. Select from the available donations and click "Accept Donation" to add them to your accepted list.</p>
+
+        <!-- Available Donations Box -->
+        <div class="available-donations">
+            <h2>Available Donations</h2>
+            <div class="donation-list" id="available-donations">
+                <!-- Available donations will be dynamically populated here -->
+            </div>
+        </div>
+
+        <!-- Accepted Donations Box -->
+        <div class="accepted-donations">
+            <h2>Accepted Donations</h2>
+            <div class="accepted-list" id="accepted-donations">
+                <!-- Accepted donations will be shown here -->
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; CompassionHub 2024 | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Function to display available donations
+        function displayAvailableDonations() {
+            const donationList = JSON.parse(localStorage.getItem("donations")) || [];
+            const availableDonationsContainer = document.getElementById("available-donations");
+
+            availableDonationsContainer.innerHTML = ""; // Clear existing content
+
+            donationList.forEach((donation, index) => {
+                const donationItem = document.createElement("li");
+                donationItem.innerHTML = `
+                    <strong>${donation.name}</strong> - ${donation.mealType} (${donation.mealQuantity} meals)
+                    <button onclick="acceptDonation(${index})">Accept Donation</button>
+                `;
+                availableDonationsContainer.appendChild(donationItem);
+            });
+        }
+
+        // Function to accept a donation
+        function acceptDonation(index) {
+            const donationList = JSON.parse(localStorage.getItem("donations")) || [];
+            const acceptedDonation = donationList.splice(index, 1)[0]; // Remove the accepted donation from available list
+
+            // Save the updated donations list and accepted donation list to localStorage
+            localStorage.setItem("donations", JSON.stringify(donationList));
+            let acceptedDonations = JSON.parse(localStorage.getItem("acceptedDonations")) || [];
+            acceptedDonations.push(acceptedDonation);
+            localStorage.setItem("acceptedDonations", JSON.stringify(acceptedDonations));
+
+            // Refresh the displayed donations
+            displayAvailableDonations();
+            displayAcceptedDonations();
+        }
+
+        // Function to display accepted donations
+        function displayAcceptedDonations() {
+            const acceptedDonationsContainer = document.getElementById("accepted-donations");
+            const acceptedDonations = JSON.parse(localStorage.getItem("acceptedDonations")) || [];
+
+            acceptedDonationsContainer.innerHTML = ""; // Clear existing content
+
+            acceptedDonations.forEach(donation => {
+                const donationItem = document.createElement("li");
+                donationItem.innerHTML = `
+                    <strong>${donation.name}</strong> - ${donation.mealType} (${donation.mealQuantity} meals)
+                `;
+                acceptedDonationsContainer.appendChild(donationItem);
+            });
+        }
+
+        // Initialize the page by displaying both available and accepted donations
+        displayAvailableDonations();
+        displayAcceptedDonations();
+    </script>
+</body>
+</html>
